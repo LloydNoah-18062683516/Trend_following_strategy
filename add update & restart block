@@ -53,7 +53,7 @@ class StrategyStateManager:
         self.conn.commit()
         cursor.close()
 
-    # 修改您的save_state方法，添加类型转换
+    # 修改save_state方法，添加类型转换
     def save_state(self, last_date, position, signal, params=None):
         cursor = self.conn.cursor()
         query = """
@@ -75,7 +75,7 @@ class StrategyStateManager:
         cursor.execute(query, (
             self.strategy_name,
             last_date,
-            int(position),  # 确保是整数
+            int(position),  
             int(signal),
             json.dumps(params) if params else None
         ))
